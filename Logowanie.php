@@ -31,13 +31,15 @@
                     <span class="labelInput">Hasło</span><br>
                     <input class="input" type="password" name="password" placeholder="Podaj hasło">
                     <?php
+
+  // Połączenie się z bazą
 $conn = mysqli_connect("localhost", "root", "", "math");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Sprawdzenie, czy pola nie są puste
+    // Czy pola są puste
     if (empty($username) || empty($password)) {
         echo "<p class='komunikat'>Musisz wprowadzić nazwę użytkownika i hasło</p>";
     } else {
@@ -45,19 +47,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = mysqli_real_escape_string($conn, $username);
         $password = mysqli_real_escape_string($conn, $password);
 
-        // Sprawdzenie, czy użytkownik o podanej nazwie i haśle istnieje w bazie danych
+        // Zapytanie wybierające użytkownika z bazy o podanej przez nas nazwie oraz haśle
         $query = "SELECT * FROM users WHERE nazwa = '$username' AND haslo = '$password'";
         $result = mysqli_query($conn, $query);
 
+         // Jeśli zapytanie zwróci wynik z bazy, tworzymy sesję dla podanego użytkownika i przekierowywujemy go na główny panel
         if (mysqli_num_rows($result) == 1) {
-            // Utwórz sesję i zapisz w niej nazwę użytkownika
             session_start();
             $_SESSION['username'] = $username;
-            // Przekieruj użytkownika na stronę powitalną
             header("Location: mainPanel.php");
             exit;
         } else {
-            // Jeśli użytkownik nie istnieje, wyświetl komunikat o błędnych danych logowania
+            // Jeśli użytkownik nie istnieje, wyświetlamy komunikat:
             echo "<p class='komunikat'>Nieprawidłowa nazwa użytkownika lub hasło</p>";
         }
     }
