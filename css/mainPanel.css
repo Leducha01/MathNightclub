@@ -1,0 +1,54 @@
+#sideBar{
+background-color: rgb(32, 31, 31);
+width: 20%;
+height: 1080px;
+text-align: center;
+margin: 0px;
+padding: 0px;
+}
+
+#powitanie{
+color: white;
+font-size: 15px;
+margin: 0px;
+padding: 10px;
+}
+
+
+
+#wyloguj{
+    background-color: white;
+    border: 1px solid transparent;
+    border-radius: .75rem;
+    
+    color: #111827;
+    cursor: pointer;
+   
+    font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.5rem;
+    padding: 5px;
+    height: 30px;
+    width: 120px;
+    text-align: center;
+    text-decoration: none #6B7280 solid;
+    text-decoration-thickness: auto;
+    transition-duration: .2s;
+    transition-property: background-color,border-color,color,fill,stroke;
+    transition-timing-function: cubic-bezier(.4, 0, 0.2, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: auto;
+  }
+  
+  #wyloguj:hover {
+    background-color: #a8aaad;
+  }
+  
+  #wyloguj:focus {
+    box-shadow: none;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
