@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (mysqli_num_rows($result) == 1) {
             session_start();
             $_SESSION['username'] = $username;
-            header("Location: mainPanel.php");
+            header("Location: Panel.php");
             exit;
         } else {
             // Jeśli użytkownik nie istnieje, wyświetlamy komunikat:
